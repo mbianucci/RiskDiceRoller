@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RiskDiceRoller</string>
+    <string name="action_settings">Settings</string>
+    <string name="attacker_armies">Number of attacking armies</string>
+    <string name="defender_armies">Number of defending armies</string>
+    <string name="attacker_ll">Attacker armies lower limit</string>
+    <string name="battle">Battle</string>
+    <string name="title_activity_battle">Battle Results</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
