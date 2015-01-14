@@ -1,9 +1,16 @@
+<!-- activity_main.xml
+Design for the main activity
+Thank you Google.-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
+    <!-- First one gets the number of attacking armies, then defender armies, then attacker lower limit.
+    android:id is the variable the number gets placed in...I think
+    android:hint is the light gray text in the text box before anything is typed (see strings.xml)
+    other ones are pretty self-explanatory-->
     <EditText
         android:id="@+id/attacker_armies"
         android:layout_width="wrap_content"
@@ -31,6 +38,10 @@
         android:layout_alignLeft="@+id/attacker_armies"
         android:layout_alignStart="@+id/attacker_armies" />
 
+    <!-- Creates the button that starts our adventure to BattleActivity.java
+    android:text is the text in the button (see strings.xml)
+    no clue what android:id is any more
+    android:onClick is what function in MainActivity.java is runs on click.-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

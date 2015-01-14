@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- AndroidManifest.xml
+Just use android studio and you never should have to do anything for this... I think
+Need to add things to it when you add new activities.-->
+
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ryan.mario.riskdiceroller" >
 

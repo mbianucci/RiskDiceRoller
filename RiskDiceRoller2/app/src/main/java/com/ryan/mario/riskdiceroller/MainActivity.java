@@ -1,3 +1,7 @@
+// MainActivity.java
+// "I basically copied all of this code"
+// "Thanks Google."
+
 package com.ryan.mario.riskdiceroller;
 
 import android.app.Activity;
@@ -8,8 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-
 public class MainActivity extends Activity {
+    // No idea if these are actually necessary or not, but they aren't hurting anything.
     public final static String EXTRA_MESSAGE1 = "com.ryan.mario.riskdiceroller.attacking";
     public final static String EXTRA_MESSAGE2 = "com.ryan.mario.riskdiceroller.defending";
     public final static String EXTRA_MESSAGE3 = "com.ryan.mario.riskdiceroller.limit";
@@ -19,7 +23,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,16 +48,25 @@ public class MainActivity extends Activity {
 
     /** Called when the user clicks the Battle button */
     public void Battle(View view) {
+        // Creating the intent, i.e. the stuff to send to the next activity
         Intent intent = new Intent(this, BattleActivity.class);
+
+        // Gets the text inputted on this activity
         EditText attacker_armies = (EditText) findViewById(R.id.attacker_armies);
         EditText defender_armies = (EditText) findViewById(R.id.defender_armies);
         EditText attacker_ll = (EditText) findViewById(R.id.attacker_ll);
+
+        // Changes that text into a string, then into integers. Probably could be done in a more straightforward way
         int aa = Integer.parseInt(attacker_armies.getText().toString());
         int da = Integer.parseInt(defender_armies.getText().toString());
         int a_ll = Integer.parseInt(attacker_ll.getText().toString());
+
+        // Don't think we need to actually put anything extra, but maybe. It isn't hurting anything.
         intent.putExtra(EXTRA_MESSAGE1, aa);
         intent.putExtra(EXTRA_MESSAGE2, da);
         intent.putExtra(EXTRA_MESSAGE3, a_ll);
+
+        // Starting the new activity and sending the intents
         startActivity(intent);
     }
 }

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- strings.xml - Because it needs to exist for some reason
+All strings used in xml are here, android studio has a hissy fit if you just put it in quotes
+This is technically supposed to be easier for changes in the future, which I agree, but it is also really annoying
+Layout of how to add more strings is pretty obvious-->
+
 <resources>
 
     <string name="app_name">RiskDiceRoller</string>
@@ -8,6 +14,6 @@
     <string name="attacker_ll">Attacker armies lower limit</string>
     <string name="battle">Battle</string>
     <string name="title_activity_battle">Battle Results</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="another_battle">Start Another Battle</string>
 
 </resources>
