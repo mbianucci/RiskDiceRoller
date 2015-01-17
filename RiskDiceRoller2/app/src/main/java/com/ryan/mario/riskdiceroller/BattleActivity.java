@@ -36,6 +36,7 @@ public class BattleActivity extends Activity {
         while(attackers_armies > attackers_ll && defenders_armies > 0 && attackers_armies > 1){
             // Reset the die every time so that if one of the players is rolling less than 3 die, the extra(s) stays at 0.
             adie.resetDie();
+            ddie.resetDie();
 
             // Greater than or equal to 4, roll 3 die. 3 means roll 2 die, 2 rolls 1 die. 1 should never happen
             if(attackers_armies >= 4){
@@ -66,7 +67,7 @@ public class BattleActivity extends Activity {
             System.out.println("Defender dice, H to L: " + ddie.getDie1() + " " + ddie.getDie2() + " " + ddie.getDie3());
 
             // Determine how many are lost on each side. This needs to be looked over**********************************************
-            if(defenders_armies >= 2 && attackers_armies > 2) {
+            if(defenders_armies >= 2 && attackers_armies - attackers_ll > 2) { // attackers_armies - attackers_ll makes sense here, right?
                 if ((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() > ddie.getDie2())) {
                     defenders_armies = defenders_armies - 2;
                 } else if ((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() <= ddie.getDie2())) {
