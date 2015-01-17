@@ -5,12 +5,14 @@
 package com.ryan.mario.riskdiceroller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
     // No idea if these are actually necessary or not, but they aren't hurting anything.
@@ -56,10 +58,48 @@ public class MainActivity extends Activity {
         EditText defender_armies = (EditText) findViewById(R.id.defender_armies);
         EditText attacker_ll = (EditText) findViewById(R.id.attacker_ll);
 
+        // Stops if user doesn't input anything for attacker armies
+        try {
+            if (attacker_armies.length() == 0) {
+                Context context = getApplicationContext();
+                CharSequence text = "Please enter a number of attacker armies";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                throw new RuntimeException();
+            }
+        }
+        catch(RuntimeException e) {
+            return;
+        }
+
+        // Stops if user doesn't input anything for defender armies
+        try {
+            if (defender_armies.length() == 0) {
+                Context context = getApplicationContext();
+                CharSequence text = "Please enter a number of defender armies";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                throw new RuntimeException();
+            }
+        }
+        catch(RuntimeException e) {
+            return;
+        }
+
+        int a_ll;
+
         // Changes that text into a string, then into integers. Probably could be done in a more straightforward way
+        if (attacker_ll.length() == 0) {
+            a_ll = 1;
+        } else {
+            a_ll = Integer.parseInt(attacker_ll.getText().toString());
+        }
+
         int aa = Integer.parseInt(attacker_armies.getText().toString());
         int da = Integer.parseInt(defender_armies.getText().toString());
-        int a_ll = Integer.parseInt(attacker_ll.getText().toString());
+
 
         // Don't think we need to actually put anything extra, but maybe. It isn't hurting anything.
         intent.putExtra(EXTRA_MESSAGE1, aa);

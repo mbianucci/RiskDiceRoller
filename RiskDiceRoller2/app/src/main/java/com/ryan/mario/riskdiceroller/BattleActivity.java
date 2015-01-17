@@ -39,22 +39,22 @@ public class BattleActivity extends Activity {
 
             // Greater than or equal to 4, roll 3 die. 3 means roll 2 die, 2 rolls 1 die. 1 should never happen
             if(attackers_armies >= 4){
-                adie.setDie1(rn.nextInt(7));
-                adie.setDie2(rn.nextInt(7));
-                adie.setDie3(rn.nextInt(7));
+                adie.setDie1(rn.nextInt(6) + 1);
+                adie.setDie2(rn.nextInt(6) + 1);
+                adie.setDie3(rn.nextInt(6) + 1);
             } else if (attackers_armies == 3){
-                adie.setDie1(rn.nextInt(7));
-                adie.setDie2(rn.nextInt(7));
+                adie.setDie1(rn.nextInt(6) + 1);
+                adie.setDie2(rn.nextInt(6) + 1);
             } else {
-                adie.setDie1(rn.nextInt(7));
+                adie.setDie1(rn.nextInt(6) + 1);
             }
 
             // Defender rolls 2 for greater than or equal to 2 armies, 1 otherwise
             if(defenders_armies >= 2){
-                ddie.setDie1(rn.nextInt(7));
-                ddie.setDie2(rn.nextInt(7));
+                ddie.setDie1(rn.nextInt(6) + 1);
+                ddie.setDie2(rn.nextInt(6) + 1);
             } else {
-                ddie.setDie1(rn.nextInt(7));
+                ddie.setDie1(rn.nextInt(6) + 1);
             }
 
             // Sort the 3 die for both from highest to lowest.
@@ -66,16 +66,16 @@ public class BattleActivity extends Activity {
             System.out.println("Defender dice, H to L: " + ddie.getDie1() + " " + ddie.getDie2() + " " + ddie.getDie3());
 
             // Determine how many are lost on each side. This needs to be looked over**********************************************
-            if(defenders_armies >= 2){
-                if((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() > ddie.getDie2())){
+            if(defenders_armies >= 2 && attackers_armies > 2) {
+                if ((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() > ddie.getDie2())) {
                     defenders_armies = defenders_armies - 2;
-                } else if ((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() <= ddie.getDie2())){
+                } else if ((adie.getDie1() > ddie.getDie1()) && (adie.getDie2() <= ddie.getDie2())) {
                     attackers_armies--;
                     defenders_armies--;
-                } else if ((adie.getDie1() <= ddie.getDie1()) && (adie.getDie2() > ddie.getDie2())){
+                } else if ((adie.getDie1() <= ddie.getDie1()) && (adie.getDie2() > ddie.getDie2())) {
                     attackers_armies--;
                     defenders_armies--;
-                } else if((ddie.getDie1() > adie.getDie1()) && (ddie.getDie2() > adie.getDie2())) {
+                } else if ((ddie.getDie1() > adie.getDie1()) && (ddie.getDie2() > adie.getDie2())) {
                     attackers_armies = attackers_armies - 2;
                 }
             } else {
@@ -91,6 +91,8 @@ public class BattleActivity extends Activity {
         }
 
         // Determines the winner, prints that out to app and console.
+        // There is probably a better way of printing these things to the app, i.e. through/with the xml file
+        // Not sure how to do it, but something to look into.
         if(attackers_armies == attackers_ll || attackers_armies == 1){
             TextView textView = new TextView(this);
             textView.setText("Defender wins. Defender armies: " + defenders_armies + "\n" + "Attacking armies: " + attackers_armies);
