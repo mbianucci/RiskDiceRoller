@@ -10,7 +10,7 @@ Need to add things to it when you add new activities.-->
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/rdr"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity

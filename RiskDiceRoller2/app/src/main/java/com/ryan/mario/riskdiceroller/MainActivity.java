@@ -58,33 +58,22 @@ public class MainActivity extends Activity {
         EditText defender_armies = (EditText) findViewById(R.id.defender_armies);
         EditText attacker_ll = (EditText) findViewById(R.id.attacker_ll);
 
-        // Stops if user doesn't input anything for attacker armies
-        try {
-            if (attacker_armies.length() == 0) {
-                Context context = getApplicationContext();
-                CharSequence text = "Please enter a number of attacker armies";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                throw new RuntimeException();
-            }
-        }
-        catch(RuntimeException e) {
+        // Stops if user doesn't input anything for attacker or defender armies
+        if (attacker_armies.length() == 0) {
+            Context context = getApplicationContext();
+            CharSequence text = "Please enter a number of attacker armies";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             return;
         }
 
-        // Stops if user doesn't input anything for defender armies
-        try {
-            if (defender_armies.length() == 0) {
-                Context context = getApplicationContext();
-                CharSequence text = "Please enter a number of defender armies";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                throw new RuntimeException();
-            }
-        }
-        catch(RuntimeException e) {
+        if (defender_armies.length() == 0) {
+            Context context = getApplicationContext();
+            CharSequence text = "Please enter a number of defender armies";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             return;
         }
 

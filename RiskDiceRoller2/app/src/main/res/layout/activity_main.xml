@@ -18,6 +18,7 @@ Thank you Google.-->
         android:hint="@string/attacker_armies"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:inputType="number"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -27,6 +28,7 @@ Thank you Google.-->
         android:hint="@string/defender_armies"
         android:layout_below="@+id/attacker_armies"
         android:layout_alignParentLeft="true"
+        android:inputType="number"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -36,6 +38,7 @@ Thank you Google.-->
         android:hint="@string/attacker_ll"
         android:layout_below="@+id/defender_armies"
         android:layout_alignLeft="@+id/attacker_armies"
+        android:inputType="number"
         android:layout_alignStart="@+id/attacker_armies" />
 
     <!-- Creates the button that starts our adventure to BattleActivity.java
